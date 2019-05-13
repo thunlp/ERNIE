@@ -12,7 +12,7 @@ Source code and dataset for "ERNIE: Enhanced Language Representation with Inform
 
 #### Pre-trained Model
 
-Download pre-trained knowledge embedding from [here](https://drive.google.com/open?id=1xlTrcjQMirR2WZvxBEwt2flym_laJL01) and unzip it.
+Download pre-trained knowledge embedding from [here](https://drive.google.com/open?id=1IyqqBtrZ9ujy_Ew4XEoJga6Ylcs27cFy) and unzip it.
 
 ```shell
 unzip kg_embed.zip -d /path/to/ernie
