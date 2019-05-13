@@ -26,7 +26,7 @@ unzip ernie_base.zip -d /path/to/ernie
 
 #### Fine-tune
 
-As most datasets except FewRel don't have entity annotations, we use TAGME to extract the entity mentions in the sentences and link them to their corresponding entitoes in KGs. We provide the annotated datasets [here](https://drive.google.com/open?id=1Q3YZg_3CUypuuJRL_GR4NMsufIvT3xqK).
+As most datasets except FewRel don't have entity annotations, we use [TAGME](<https://tagme.d4science.org/tagme/>) to extract the entity mentions in the sentences and link them to their corresponding entitoes in KGs. We provide the annotated datasets [here](https://drive.google.com/open?id=1Q3YZg_3CUypuuJRL_GR4NMsufIvT3xqK).
 
 ```shell
 unzip data.zip -d /path/to/ernie
