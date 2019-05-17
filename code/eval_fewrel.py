@@ -288,7 +288,7 @@ def _truncate_seq_pair(tokens_a, tokens_b, ents_a, ents_b, max_length):
 
 def accuracy(out, labels):
     outputs = np.argmax(out, axis=1)
-    return np.sum(outputs == labels)
+    return np.sum(outputs == labels), outputs
 
 def warmup_linear(x, warmup=0.002):
     if x < warmup:
@@ -476,6 +476,18 @@ def main():
         eval_sampler = SequentialSampler(eval_data)
         eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.eval_batch_size)
 
+        if mark:
+            output_eval_file = os.path.join(args.output_dir, "eval_results_{}.txt".format(x.split("_")[-1]))
+            output_file_pred = os.path.join(args.output_dir, "eval_pred_{}.txt".format(x.split("_")[-1]))
+            output_file_glod = os.path.join(args.output_dir, "eval_gold_{}.txt".format(x.split("_")[-1]))
+        else:
+            output_eval_file = os.path.join(args.output_dir, "test_results_{}.txt".format(x.split("_")[-1]))
+            output_file_pred = os.path.join(args.output_dir, "test_pred_{}.txt".format(x.split("_")[-1]))
+            output_file_glod = os.path.join(args.output_dir, "test_gold_{}.txt".format(x.split("_")[-1]))
+
+        fpred = open(output_file_pred, "w")
+        fgold = open(output_file_glod, "w")
+
         model.eval()
         eval_loss, eval_accuracy = 0, 0
         nb_eval_steps, nb_eval_examples = 0, 0
@@ -494,7 +506,10 @@ def main():
 
             logits = logits.detach().cpu().numpy()
             label_ids = label_ids.to('cpu').numpy()
-            tmp_eval_accuracy = accuracy(logits, label_ids)
+            tmp_eval_accuracy, pred = accuracy(logits, label_ids)
+            for a, b in zip(pred, label_ids):
+                fgold.write("{}\n".format(b))
+                fpred.write("{}\n".format(a))
 
             eval_loss += tmp_eval_loss.mean().item()
             eval_accuracy += tmp_eval_accuracy
@@ -508,10 +523,6 @@ def main():
         result = {'eval_loss': eval_loss,
                   'eval_accuracy': eval_accuracy   
                   }
-        if mark:
-            output_eval_file = os.path.join(args.output_dir, "eval_results_{}.txt".format(x.split("_")[-1]))
-        else:
-            output_eval_file = os.path.join(args.output_dir, "test_results_{}.txt".format(x.split("_")[-1]))
 
         with open(output_eval_file, "w") as writer:
             logger.info("***** Eval results *****")
