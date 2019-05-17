@@ -419,8 +419,8 @@ def main():
 
     processor = TypingProcessor()
 
-    tokenizer_label = BertTokenizer_label.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
-    tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
+    tokenizer_label = BertTokenizer_label.from_pretrained(args.ernie_model, do_lower_case=args.do_lower_case)
+    tokenizer = BertTokenizer.from_pretrained(args.ernie_model, do_lower_case=args.do_lower_case)
 
     train_examples = None
     num_train_steps = None
@@ -441,7 +441,7 @@ def main():
             len(train_examples) / args.train_batch_size / args.gradient_accumulation_steps * args.num_train_epochs)
 
     # Prepare model
-    model, _ = BertForEntityTyping.from_pretrained(args.bert_model,
+    model, _ = BertForEntityTyping.from_pretrained(args.ernie_model,
               cache_dir=PYTORCH_PRETRAINED_BERT_CACHE / 'distributed_{}'.format(args.local_rank),
               num_labels = len(label_list))
     if args.fp16:

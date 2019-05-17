@@ -422,8 +422,8 @@ def main():
 
     processor = TypingProcessor()
 
-    tokenizer_label = BertTokenizer_label.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
-    tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
+    tokenizer_label = BertTokenizer_label.from_pretrained(args.ernie_model, do_lower_case=args.do_lower_case)
+    tokenizer = BertTokenizer.from_pretrained(args.ernie_model, do_lower_case=args.do_lower_case)
 
     _, label_list, _ = processor.get_train_examples(args.data_dir)
     label_list = sorted(label_list)
@@ -463,7 +463,7 @@ def main():
         print(x, mark)
         output_model_file = os.path.join(args.output_dir, x)
         model_state_dict = torch.load(output_model_file)
-        model, _ = BertForEntityTyping.from_pretrained(args.bert_model, state_dict=model_state_dict, num_labels=len(label_list))
+        model, _ = BertForEntityTyping.from_pretrained(args.ernie_model, state_dict=model_state_dict, num_labels=len(label_list))
         model.to(device)
 
         if mark:
