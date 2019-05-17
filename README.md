@@ -70,11 +70,26 @@ Some code is modified from the **pytorch-pretrained-BERT**. You can find the exl
 
 As the annotations given by TAGME have confidence score, we use `--threshlod` to set the lowest confidence score and choose the annotations whose scores are higher than `--threshold`. In this experiment, the value is usually `0.3` or `0.4`.
 
+The script for the evaluation of relation classification just gives the accuracy score. For the macro/micro metrics, you should use `code/score.py` which is from [tacred repo](<https://github.com/yuhaozhang/tacred-relation>).
+
+```shell
+python3 code/score.py gold_file pred_file
+```
+
+You can find `gold_file` and `pred_file` on each checkpoint in the output folder (`--output_dir`).
+
 #### Cite
 
 If you use the code, please cite this paper:
 
-*Zhengyan Zhang, Xu Han, Zhiyuan Liu, Xin Jiang, Maosong Sun, Qun Liu: ERNIE: Enhanced Language Representation with Informative Entities. The 57th Annual Meeting of the Association for Computational Linguistics (ACL 2019)*
+```
+@inproceedings{zhang2019ernie,
+  title={{ERNIE}: Enhanced Language Representation with Informative Entities},
+  author={Zhang, Zhengyan and Han, Xu and Liu, Zhiyuan and Jiang, Xin and Sun, Maosong and Liu, Qun},
+  booktitle={Proceedings of ACL 2019},
+  year={2019}
+}
+```
 
 
 

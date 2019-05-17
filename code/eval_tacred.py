@@ -506,8 +506,8 @@ def main():
             label_ids = label_ids.to('cpu').numpy()
             tmp_eval_accuracy, pred = accuracy(logits, label_ids)
             for a, b in zip(pred, label_ids):
-                fgold.write("{}\n".format(b))
-                fpred.write("{}\n".format(a))
+                fgold.write("{}\n".format(label_list[b]))
+                fpred.write("{}\n".format(label_list[a]))
 
             eval_loss += tmp_eval_loss.mean().item()
             eval_accuracy += tmp_eval_accuracy
