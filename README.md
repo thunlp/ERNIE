@@ -1,6 +1,6 @@
 ## ERNIE
 
-Source code and dataset for "ERNIE: Enhanced Language Representation with Informative Entities"
+Source code and dataset for "[ERNIE: Enhanced Language Representation with Informative Entities](https://arxiv.org/abs/1905.07129)"
 
 #### Reqirements:
 
