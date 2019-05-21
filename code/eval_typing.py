@@ -556,8 +556,6 @@ def main():
         if False:
             result = {'eval_loss': eval_loss,
                     'eval_accuracy': eval_accuracy,
-                    'global_step': global_step,
-                    'loss': tr_loss/nb_tr_steps,
                     'macro': loose_macro(true, pred),
                     'micro': loose_micro(true, pred)
                     }

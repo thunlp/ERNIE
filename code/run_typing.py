@@ -290,7 +290,7 @@ def accuracy(out, l):
         top = max(x1)
         for i in range(len(x1)):
             #if x1[i] > 0 or x1[i] == top:
-            if x[i] > 0:
+            if x1[i] > 0:
                 yy1.append(i)
             if x2[i] > 0:
                 yy2.append(i)
