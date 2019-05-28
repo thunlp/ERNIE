@@ -12,13 +12,13 @@ Source code and dataset for "[ERNIE: Enhanced Language Representation with Infor
 
 ### Pre-trained Model
 
-Download pre-trained knowledge embedding from [here](https://drive.google.com/open?id=1IyqqBtrZ9ujy_Ew4XEoJga6Ylcs27cFy) and unzip it.
+Download pre-trained knowledge embedding from [Google Drive](https://drive.google.com/open?id=1IyqqBtrZ9ujy_Ew4XEoJga6Ylcs27cFy)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/c7b46b6fa52849229116/) and unzip it.
 
 ```shell
 unzip kg_embed.zip -d /path/to/ernie
 ```
 
-Download pre-trained ERNIE from [here](https://drive.google.com/open?id=1m673-YB-4j1ISNDlk5oZjpPF2El7vn6f) and unzip it.
+Download pre-trained ERNIE from [Google Drive](https://drive.google.com/open?id=1m673-YB-4j1ISNDlk5oZjpPF2El7vn6f)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/9bb7724fe7b84d378c47/) and unzip it.
 
 ```shell
 unzip ernie_base.zip -d /path/to/ernie
@@ -26,7 +26,7 @@ unzip ernie_base.zip -d /path/to/ernie
 
 ### Fine-tune
 
-As most datasets except FewRel don't have entity annotations, we use [TAGME](<https://tagme.d4science.org/tagme/>) to extract the entity mentions in the sentences and link them to their corresponding entitoes in KGs. We provide the annotated datasets [here](https://drive.google.com/open?id=1Q3YZg_3CUypuuJRL_GR4NMsufIvT3xqK).
+As most datasets except FewRel don't have entity annotations, we use [TAGME](<https://tagme.d4science.org/tagme/>) to extract the entity mentions in the sentences and link them to their corresponding entitoes in KGs. We provide the annotated datasets [Google Drive](https://drive.google.com/open?id=1Q3YZg_3CUypuuJRL_GR4NMsufIvT3xqK)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/7676975744c64e9497db/).
 
 ```shell
 unzip data.zip -d /path/to/ernie
