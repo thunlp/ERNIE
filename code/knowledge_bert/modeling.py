@@ -434,11 +434,12 @@ class BertEncoder(nn.Module):
 
     def forward(self, hidden_states, attention_mask, hidden_states_ent, attention_mask_ent, ent_mask, output_all_encoded_layers=True):
         all_encoder_layers = []
-        if self.training:
-            ent_mask = ent_mask.half().unsqueeze(-1)
-        else:
-            ent_mask = ent_mask.float().unsqueeze(-1)
-        #ent_mask = ent_mask.float().unsqueeze(-1)
+        ent_mask = ent_mask.to(dtype=next(self.parameters()).dtype).unsqueeze(-1)
+        # if self.training:
+        #     ent_mask = ent_mask.half().unsqueeze(-1)
+        # else:
+        #     ent_mask = ent_mask.float().unsqueeze(-1)
+        # ent_mask = ent_mask.float().unsqueeze(-1)
         for layer_module in self.layer:
             hidden_states, hidden_states_ent = layer_module(hidden_states, attention_mask, hidden_states_ent, attention_mask_ent, ent_mask)
             if output_all_encoded_layers:
