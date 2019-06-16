@@ -12,24 +12,24 @@ Source code and dataset for "[ERNIE: Enhanced Language Representation with Infor
 
 ### Pre-trained Model
 
-Download pre-trained knowledge embedding from [Google Drive](https://drive.google.com/open?id=1IyqqBtrZ9ujy_Ew4XEoJga6Ylcs27cFy)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/c7b46b6fa52849229116/) and unzip it.
+Download pre-trained knowledge embedding from [Google Drive](https://drive.google.com/open?id=14VNvGMtYWxuqT-PWDa8sD0e7hO486i8Y)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/ebcfdb8975b740d4b60a/) and unzip it.
 
 ```shell
-unzip kg_embed.zip -d /path/to/ernie
+tar -xvzf kg_embed.tar.gz
 ```
 
-Download pre-trained ERNIE from [Google Drive](https://drive.google.com/open?id=1m673-YB-4j1ISNDlk5oZjpPF2El7vn6f)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/9bb7724fe7b84d378c47/) and unzip it.
+Download pre-trained ERNIE from [Google Drive](https://drive.google.com/open?id=1DVGADbyEgjjpsUlmQaqN6i043SZvHPu5)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/8df2a3a6261e4643a68f/) and unzip it.
 
 ```shell
-unzip ernie_base.zip -d /path/to/ernie
+tar -xvzf ernie_base.tar.gz
 ```
 
 ### Fine-tune
 
-As most datasets except FewRel don't have entity annotations, we use [TAGME](<https://tagme.d4science.org/tagme/>) to extract the entity mentions in the sentences and link them to their corresponding entitoes in KGs. We provide the annotated datasets [Google Drive](https://drive.google.com/open?id=1Q3YZg_3CUypuuJRL_GR4NMsufIvT3xqK)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/7676975744c64e9497db/).
+As most datasets except FewRel don't have entity annotations, we use [TAGME](<https://tagme.d4science.org/tagme/>) to extract the entity mentions in the sentences and link them to their corresponding entitoes in KGs. We provide the annotated datasets [Google Drive](https://drive.google.com/open?id=1HlWw7Q6-dFSm9jNSCh4VaBf1PlGqt9im)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/32668247e4fd4f9789f2/).
 
 ```shell
-unzip data.zip -d /path/to/ernie
+tar -xvzf data.tar.gz
 ```
 
 In the root directory of the project, run the following codes to fine-tune ERNIE on different datasets.
