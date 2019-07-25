@@ -148,6 +148,7 @@ def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer
         h, t = example.text_a[1]
         h_name = ex_text_a[h[1]:h[2]]
         t_name = ex_text_a[t[1]:t[2]]
+        # Add [HD] and [TL], which are "#" and "$" respectively.
         if h[1] < t[1]:
             ex_text_a = ex_text_a[:h[1]] + "# "+h_name+" #" + ex_text_a[h[2]:t[1]] + "$ "+t_name+" $" + ex_text_a[t[2]:]
         else:
