@@ -553,18 +553,12 @@ def main():
             recall = num_correct_labels / num_true_labels
             return precision, recall, f1( precision, recall)
 
-        if False:
-            result = {'eval_loss': eval_loss,
-                    'eval_accuracy': eval_accuracy,
-                    'macro': loose_macro(true, pred),
-                    'micro': loose_micro(true, pred)
-                    }
-        else:
-            result = {'eval_loss': eval_loss,
-                    'eval_accuracy': eval_accuracy,
-                    'macro': loose_macro(true, pred),
-                    'micro': loose_micro(true, pred)
-                    }
+
+        result = {'eval_loss': eval_loss,
+                'eval_accuracy': eval_accuracy,
+                'macro': loose_macro(true, pred),
+                'micro': loose_micro(true, pred)
+                }
 
         if mark:
             output_eval_file = os.path.join(args.output_dir, "eval_results_{}.txt".format(x.split("_")[-1]))
