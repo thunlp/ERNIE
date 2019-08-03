@@ -422,6 +422,7 @@ def main():
     train_examples = None
     num_train_steps = None
     train_examples, label_list = processor.get_train_examples(args.data_dir)
+    label_list = sorted(label_list)
     vecs = []
     vecs.append([0]*100)
     with open("kg_embed/entity2vec.vec", 'r') as fin:
