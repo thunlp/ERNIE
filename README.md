@@ -10,6 +10,14 @@ Source code and dataset for "ERNIE: Enhanced Language Representation with Inform
 * boto3
 * requests
 
+#### Prepare Pre-train Data
+
+Run the following command to create training instances.
+
+```shell
+  python3 code/create_instances.py --input_file_prefix pretrain_data/wiki --output_file pretrain_data/data --vocab_file ernie_base/vocab.txt --dupe_factor 1 --max_seq_length 256 --max_predictions_per_seq 40
+```
+
 #### Pre-trained Model
 
 Download pre-trained knowledge embedding from [here](https://drive.google.com/open?id=1IyqqBtrZ9ujy_Ew4XEoJga6Ylcs27cFy) and unzip it.
