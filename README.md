@@ -12,17 +12,19 @@ Source code and dataset for "[ERNIE: Enhanced Language Representation with Infor
 
 ### Pre-trained Model
 
-Download pre-trained knowledge embedding from [Google Drive](https://drive.google.com/open?id=14VNvGMtYWxuqT-PWDa8sD0e7hO486i8Y)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/ebcfdb8975b740d4b60a/) and unzip it.
+Download pre-trained knowledge embedding from [Google Drive](https://drive.google.com/open?id=14VNvGMtYWxuqT-PWDa8sD0e7hO486i8Y)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/ebcfdb8975b740d4b60a/) and extract it.
 
 ```shell
 tar -xvzf kg_embed.tar.gz
 ```
 
-Download pre-trained ERNIE from [Google Drive](https://drive.google.com/open?id=1DVGADbyEgjjpsUlmQaqN6i043SZvHPu5)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/8df2a3a6261e4643a68f/) and unzip it.
+Download pre-trained ERNIE from [Google Drive](https://drive.google.com/open?id=1DVGADbyEgjjpsUlmQaqN6i043SZvHPu5)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/8df2a3a6261e4643a68f/) and extract it.
 
 ```shell
 tar -xvzf ernie_base.tar.gz
 ```
+
+Note that the extraction may be not completed in Windows.
 
 ### Fine-tune
 
