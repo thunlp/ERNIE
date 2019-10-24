@@ -15,7 +15,17 @@ Source code and dataset for "ERNIE: Enhanced Language Representation with Inform
 Run the following command to create training instances.
 
 ```shell
-  python3 code/create_instances.py --input_file_prefix pretrain_data/wiki --output_file pretrain_data/data --vocab_file ernie_base/vocab.txt --dupe_factor 1 --max_seq_length 256 --max_predictions_per_seq 40
+  cd pretrain_data
+  # Download Wikidump
+  wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
+  # WikiExtractor
+  python3 WikiExtractor.py enwiki-latest-pages-articles.xml.bz2 -o output -l --min_text_length 100 --filter_disambig_pages -it abbr,b,big --processes 4
+  # Modify anchor with 4 processes
+  python3 extract.py 4
+  # Preprocess with 4 processes
+  python3 create_ids.py 4
+  # create instances for part 0
+  python3 ../code/create_instances.py --input_file_prefix raw/0 --output_file pretrain_data/0 --vocab_file ernie_base/vocab.txt --dupe_factor 1 --max_seq_length 256 --max_predictions_per_seq 40
 ```
 
 #### Pre-trained Model
