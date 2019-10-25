@@ -21,7 +21,7 @@ Run the following command to create training instances.
   wget -c https://cloud.tsinghua.edu.cn/f/a519318708df4dc8a853/?dl=1 -O alias_entity.txt
   # WikiExtractor
   python3 pretrain_data/WikiExtractor.py enwiki-latest-pages-articles.xml.bz2 -o pretrain_data/output -l --min_text_length 100 --filter_disambig_pages -it abbr,b,big --processes 4
-  # Modify anchor with 4 processes
+  # Modify anchors with 4 processes
   python3 pretrain_data/extract.py 4
   # Preprocess with 4 processes
   python3 pretrain_data/create_ids.py 4
