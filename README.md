@@ -15,17 +15,26 @@ Source code and dataset for "ERNIE: Enhanced Language Representation with Inform
 Run the following command to create training instances.
 
 ```shell
-  cd pretrain_data
   # Download Wikidump
   wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
+  # Download alise
+  wget -c https://cloud.tsinghua.edu.cn/f/a519318708df4dc8a853/?dl=1 -O alias_entity.txt
   # WikiExtractor
-  python3 WikiExtractor.py enwiki-latest-pages-articles.xml.bz2 -o output -l --min_text_length 100 --filter_disambig_pages -it abbr,b,big --processes 4
+  python3 pretrain_data/WikiExtractor.py enwiki-latest-pages-articles.xml.bz2 -o pretrain_data/output -l --min_text_length 100 --filter_disambig_pages -it abbr,b,big --processes 4
   # Modify anchor with 4 processes
-  python3 extract.py 4
+  python3 pretrain_data/extract.py 4
   # Preprocess with 4 processes
-  python3 create_ids.py 4
-  # create instances for part 0
-  python3 ../code/create_instances.py --input_file_prefix raw/0 --output_file pretrain_data/0 --vocab_file ernie_base/vocab.txt --dupe_factor 1 --max_seq_length 256 --max_predictions_per_seq 40
+  python3 pretrain_data/create_ids.py 4
+  # create instances
+  python3 pretrain_data/create_insts.py 4
+  # merge
+  python3 code/merge.py
+```
+
+Run the following command to pretrain:
+
+```
+  python3 code/run_pretrain.py --do_train --data_dir pretrain_data/merge --bert_model ernie_base --output_dir pretrain_out/ --task_name pretrain --fp16 --max_seq_length 256
 ```
 
 #### Pre-trained Model
