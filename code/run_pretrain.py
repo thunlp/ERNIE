@@ -275,15 +275,14 @@ def main():
         t_total = t_total // torch.distributed.get_world_size()
     if args.fp16:
         try:
-            from apex.optimizers import FP16_Optimizer
+            from apex.contrib.optimizers import FP16_Optimizer
             from apex.optimizers import FusedAdam
         except ImportError:
             raise ImportError("Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training.")
 
         optimizer = FusedAdam(optimizer_grouped_parameters,
                               lr=args.learning_rate,
-                              bias_correction=False,
-                              max_grad_norm=1.0)
+                              bias_correction=False)
         if args.loss_scale == 0:
             optimizer = FP16_Optimizer(optimizer, dynamic_loss_scale=True)
         else:
