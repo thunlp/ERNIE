@@ -9,7 +9,7 @@ Source code and dataset for "[ERNIE: Enhanced Language Representation with Infor
 * tqdm
 * boto3
 * requests
-* apex (If you want to use fp16, you should make sure the commit is `fa719e8b250543a76745623dc761ccf73bcc7f23`.)
+* apex (If you want to use fp16, you should make sure the commit is `79ad5a88e91434312b43b4a89d66226be5f2cc98`.)
 
 #### Prepare Pre-train Data
 
