@@ -38,6 +38,8 @@ Run the following command to pretrain:
   python3 code/run_pretrain.py --do_train --data_dir pretrain_data/merge --bert_model ernie_base --output_dir pretrain_out/ --task_name pretrain --fp16 --max_seq_length 256
 ```
 
+We use 8 NVIDIA-2080Ti to pre-train our model and there are 32 instances in each GPU. It takes nearly one day to finish the training (1 epoch is enough).
+
 ### Pre-trained Model
 
 Download pre-trained knowledge embedding from [Google Drive](https://drive.google.com/open?id=14VNvGMtYWxuqT-PWDa8sD0e7hO486i8Y)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/ebcfdb8975b740d4b60a/) and extract it.
