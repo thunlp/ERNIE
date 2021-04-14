@@ -18,8 +18,8 @@ Run the following command to create training instances.
 ```shell
   # Download Wikidump
   wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
-  # Download alise
-  wget -c https://cloud.tsinghua.edu.cn/f/a519318708df4dc8a853/?dl=1 -O alias_entity.txt
+  # Download anchor2id
+  wget -c https://cloud.tsinghua.edu.cn/f/1c956ed796cb4d788646/?dl=1 -O anchor2id.txt
   # WikiExtractor
   python3 pretrain_data/WikiExtractor.py enwiki-latest-pages-articles.xml.bz2 -o pretrain_data/output -l --min_text_length 100 --filter_disambig_pages -it abbr,b,big --processes 4
   # Modify anchors with 4 processes
@@ -31,6 +31,17 @@ Run the following command to create training instances.
   # merge
   python3 code/merge.py
 ```
+
+If you want to get anchor2id by yourself, run the following code after `python3 pretrain_data/extract.py 4`
+```shell
+  # extract anchors
+  python3 pretrain_data/utils.py get_anchors
+  # query Mediawiki api using anchor link to get wikibase item id. For more details, see https://en.wikipedia.org/w/api.php?action=help.
+  python3 pretrain_data/create_anchors.py 256 
+  # aggregate anchors 
+  python3 pretrain_data/utils.py agg_anchors
+```
+This will take about half a day.
 
 Run the following command to pretrain:
 

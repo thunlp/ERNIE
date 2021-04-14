@@ -36,14 +36,14 @@ def run_proc(idx, n, file_list):
                 content = "".join(content[1:])
 
                 try:
-                    lookup = [(x.get_text().strip(), parse.unquote(x.get('href')))
+                    lookup = [(x.get_text().strip(), x.get('href'))
                               for x in doc.find_all("a")]
                     lookup = "[_end_]".join(
                         ["[_map_]".join(x) for x in lookup])
+                    fout.write(content+"[_end_]"+lookup+"\n")
                 except Exception as e:
                     logging.warning(
                         'Error {} when parsing file {}'.format(str(e), input_name))
-                fout.write(content+"[_end_]"+lookup+"\n")
         logging.info('Finished {}'.format(target))
 
 
