@@ -32,7 +32,7 @@ Run the following command to create training instances.
   python3 code/merge.py
 ```
 
-If you want to get anchor2id by yourself, run the following code after `python3 pretrain_data/extract.py 4`
+If you want to get anchor2id by yourself, run the following code(this will take about half a day) after `python3 pretrain_data/extract.py 4`
 ```shell
   # extract anchors
   python3 pretrain_data/utils.py get_anchors
@@ -41,7 +41,6 @@ If you want to get anchor2id by yourself, run the following code after `python3 
   # aggregate anchors 
   python3 pretrain_data/utils.py agg_anchors
 ```
-This will take about half a day.
 
 Run the following command to pretrain:
 
