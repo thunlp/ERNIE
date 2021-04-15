@@ -24,7 +24,7 @@ sep_id = tokenizer.convert_tokens_to_ids(["sepsepsep"])[0]
 
 # load entity dict
 d_ent = {}
-with open("alias_entity.txt", "r") as fin:
+with open("anchor2id.txt", "r") as fin:
     for line in fin:
         v = line.strip().split("\t")
         if len(v) != 2:
