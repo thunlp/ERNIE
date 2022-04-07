@@ -45,7 +45,7 @@ If you want to get anchor2id by yourself, run the following code(this will take 
 Run the following command to pretrain:
 
 ```
-  python3 code/run_pretrain.py --do_train --data_dir pretrain_data/merge --bert_model ernie_base --output_dir pretrain_out/ --task_name pretrain --fp16 --max_seq_length 256
+  python3 code/run_pretrain.py --do_train --data_dir pretrain_data/merge --bert_model bert_base --output_dir pretrain_out/ --task_name pretrain --fp16 --max_seq_length 256
 ```
 
 We use 8 NVIDIA-2080Ti to pre-train our model and there are 32 instances in each GPU. It takes nearly one day to finish the training (1 epoch is enough).
