@@ -19,7 +19,7 @@ Run the following command to create training instances.
   # Download Wikidump
   wget https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2
   # Download anchor2id
-  wget -c https://cloud.tsinghua.edu.cn/f/1c956ed796cb4d788646/?dl=1 -O anchor2id.txt
+  wget -c https://cloud.tsinghua.edu.cn/f/6318808dded94818b3a1/?dl=1 -O anchor2id.txt
   # WikiExtractor
   python3 pretrain_data/WikiExtractor.py enwiki-latest-pages-articles.xml.bz2 -o pretrain_data/output -l --min_text_length 100 --filter_disambig_pages -it abbr,b,big --processes 4
   # Modify anchors with 4 processes
