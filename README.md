@@ -1,10 +1,12 @@
-# ERNIE (sub-project of THU-OpenSKL)
+# ERNIE (sub-project of OpenSKL)
 
-ERNIE is a sub-project of THU-OpenSKL, providing an open-sourced toolkit for augmenting pre-trained language models with knowledge graph representations.
+ERNIE is a sub-project of OpenSKL, providing an open-sourced toolkit (**E**nhanced language **R**epresentatio**N** with **I**nformative **E**ntities) for augmenting pre-trained language models with knowledge graph representations.
 
 ## Overview
 
 ERNIE contains the source code and dataset for "[ERNIE: Enhanced Language Representation with Informative Entities](https://arxiv.org/abs/1905.07129)", and is an effective and efficient toolkit for augmenting pre-trained language models with knowledge graph representations.
+
+## Usage
 
 ### Requirements:
 
@@ -15,7 +17,7 @@ ERNIE contains the source code and dataset for "[ERNIE: Enhanced Language Repres
 * requests
 * apex (If you want to use fp16, you should make sure the commit is `79ad5a88e91434312b43b4a89d66226be5f2cc98`.)
 
-#### Prepare Pre-train Data
+### Prepare Pre-train Data
 
 Run the following command to create training instances.
 
@@ -141,7 +143,7 @@ pip install tagme
 python3 code/example.py
 ```
 
-### Cite
+## Citation
 
 If you use the code, please cite this paper:
 
@@ -154,37 +156,37 @@ If you use the code, please cite this paper:
 }
 ```
 ******************
-## About THU_OpenSKL
-THU-OpenSKL project aims to harness the power of both structured knowledge and unstructured languages via representation learning. All sub-projects of THU-OpenSKL are as follows.
+## About OpenSKL
+OpenSKL project aims to harness the power of both structured knowledge and natural languages via representation learning. All sub-projects of OpenSKL, under the categories of **Algorithm**, **Resource** and **Application**, are as follows.
 
 - **Algorithm**: 
-  - [OpenNE](https://www.github.com/thunlp/OpenNE)
-    - An effective and efficient toolkit for representing nodes in large-scale graphs as embeddings, with [TADW](https://www.ijcai.org/Proceedings/15/Papers/299.pdf) as key features to incorporate text attributes of nodes.
   - [OpenKE](https://www.github.com/thunlp/OpenKE)
     - An effective and efficient toolkit for representing structured knowledge in large-scale knowledge graphs as embeddings, with <a href="https://ojs.aaai.org/index.php/AAAI/article/view/9491/9350"> TransR</a> and  <a href="https://aclanthology.org/D15-1082.pdf">PTransE</a> as key features to handle complex relations and relational paths.
-    - This toolkit also includes three sub-toolkits:
+    - This toolkit also includes three repositories:
        - [KB2E](https://www.github.com/thunlp/KB2E)
        - [TensorFlow-Transx](https://www.github.com/thunlp/TensorFlow-Transx)
        - [Fast-TransX](https://www.github.com/thunlp/Fast-TransX)
-  - [OpenNRE](https://www.github.com/thunlp/OpenNRE)
-    - An effective and efficient toolkit for implementing neural networks for extracting structured knowledge from text, with [ATT](https://aclanthology.org/P16-1200.pdf) as key features to consider relation-associated text information.
-    - This toolkit also includes two sub-toolkits:
-      - [JointNRE](https://www.github.com/thunlp/JointNRE)
-      - [NRE](https://github.com/thunlp/NRE)
   - [ERNIE](https://github.com/thunlp/ERNIE)
     - An effective and efficient toolkit for augmenting pre-trained language models with knowledge graph representations.
+  - [OpenNE](https://www.github.com/thunlp/OpenNE)
+    - An effective and efficient toolkit for representing nodes in large-scale graphs as embeddings, with [TADW](https://www.ijcai.org/Proceedings/15/Papers/299.pdf) as key features to incorporate text attributes of nodes.
+  - [OpenNRE](https://www.github.com/thunlp/OpenNRE)
+    - An effective and efficient toolkit for implementing neural networks for extracting structured knowledge from text, with [ATT](https://aclanthology.org/P16-1200.pdf) as key features to consider relation-associated text information.
+    - This toolkit also includes two repositories:
+      - [JointNRE](https://www.github.com/thunlp/JointNRE)
+      - [NRE](https://github.com/thunlp/NRE)
 - **Resource**:
   - The embeddings of large-scale knowledge graphs pre-trained by OpenKE, covering three typical large-scale knowledge graphs: Wikidata, Freebase, and XLORE. The embeddings are free to use under the [MIT license](https://opensource.org/license/mit/), and please click the following link to submit [download requests](http://139.129.163.161/download/wikidata).
   - OpenKE-Wikidata
-    - Wikidata is a free and collaborative database, collecting structured data to provide support for Wikipedia. Wikidata contains 20,982,733 entities, 594 relations and 68,904,773 triplets.
-    - TransE version: Knowledge graph embeddings of Wikidata pre-trained by OpenKE. 
-    - [Plugin version of TransR](https://thunlp.oss-cn-qingdao.aliyuncs.com/zzy/transr.npy): Knowledge graph embeddings of Wikidata pre-trained by OpenKE for the project [Knowledge-Plugin](https://github.com/THUNLP/Knowledge-Plugin).
+    - Wikidata is a free and collaborative database, collecting structured data to provide support for Wikipedia. The original Wikidata contains 20,982,733 entities, 594 relations and 68,904,773 triplets. In particular, Wikidata-5M is the core subgraph of Wikidata, containing  5,040,986 high-frequency entities from Wikidata with their corresponding 927 relations and 24,267,796 triplets.
+    - TransE version: Knowledge embeddings of Wikidata pre-trained by OpenKE. 
+    - [TransR version](https://thunlp.oss-cn-qingdao.aliyuncs.com/zzy/transr.npy) of Wikidata-5M: Knowledge embeddings of Wikidata-5M pre-trained by OpenKE for the project [Knowledge-Plugin](https://github.com/THUNLP/Knowledge-Plugin).
   - OpenKE-Freebase
     - Freebase was a large collaborative knowledge base consisting of data composed mainly by its community members. It was an online collection of structured data harvested from many sources. Freebase contains 86,054,151 entities, 14,824 relations and 338,586,276 triplets.
-    - TransE version: Knowledge graph embeddings of Freebase pre-trained by OpenKE. 
+    - TransE version: Knowledge embeddings of Freebase pre-trained by OpenKE. 
   - OpenKE-XLORE
     - XLORE is one of the most popular Chinese knowledge graphs developed by THUKEG. XLORE contains 10,572,209 entities, 138,581 relations and 35,954,249 triplets.
-    - TransE version: Knowledge graph embeddings of XLORE pre-trained by OpenKE.
+    - TransE version: Knowledge embeddings of XLORE pre-trained by OpenKE.
 - **Application**:   
     - [Knowledge-Plugin](https://github.com/THUNLP/Knowledge-Plugin)
-      - An effective and efficient toolkit of plug-and-play knowledge injection for pre-trained language models. Knowledge-Plugin is general for all kinds of knowledge graph embeddings mentioned above. In the toolkit repository, we provide the example of plugging OpenKE-Wikidata embeddings into BERT.
+      - An effective and efficient toolkit of plug-and-play knowledge injection for pre-trained language models. Knowledge-Plugin is general for all kinds of knowledge graph embeddings mentioned above. In the toolkit, we provide the example of plugging OpenKE-Wikidata embeddings into BERT.
