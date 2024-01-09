@@ -7,7 +7,7 @@ ERNIE is a sub-project of OpenSKL, providing an open-sourced toolkit (**E**nhanc
 ERNIE contains the source code and dataset for "[ERNIE: Enhanced Language Representation with Informative Entities](https://arxiv.org/abs/1905.07129)", and is an effective and efficient toolkit for augmenting pre-trained language models with knowledge graph representations.
 
 ## Models
-We include the vanilla BERT model as well as our knowledge-enhanced version ERNIE in this toolkit.
+We provide our knowledge-enhanced pre-trained language model ERNIE in this toolkit. We also provide the detailed commands to fine-tune ERNIE for different downstream tasks.
 
 ## Evaluation
 
