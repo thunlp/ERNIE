@@ -6,9 +6,15 @@ ERNIE is a sub-project of OpenSKL, providing an open-sourced toolkit (**E**nhanc
 
 ERNIE contains the source code and dataset for "[ERNIE: Enhanced Language Representation with Informative Entities](https://arxiv.org/abs/1905.07129)", and is an effective and efficient toolkit for augmenting pre-trained language models with knowledge graph representations.
 
+## Models
+We include the vanilla BERT model as well as our knowledge-enhanced version ERNIE in this toolkit.
+
 ## Evaluation
 
-We validate the effectiveness of ERNIE on relation classification and entity typing tasks through fine-tuning. We use the following datasets: FIGER and OpenEntity for entity typing, FewRel and TACRED for relation classification.
+We validate the effectiveness of ERNIE on entity typing and relation classification tasks through fine-tuning.
+
+### Settings
+We use the following datasets: FIGER and OpenEntity for entity typing, FewRel and TACRED for relation classification. We will fine-tune the models (BERT and ERNIE) first, and then evaluate their accuracies and F1 scores.
 
 ### Results
 
@@ -195,7 +201,7 @@ OpenSKL project aims to harness the power of both structured knowledge and natur
   - OpenKE-Wikidata
     - Wikidata is a free and collaborative database, collecting structured data to provide support for Wikipedia. The original Wikidata contains 20,982,733 entities, 594 relations and 68,904,773 triplets. In particular, Wikidata-5M is the core subgraph of Wikidata, containing  5,040,986 high-frequency entities from Wikidata with their corresponding 927 relations and 24,267,796 triplets.
     - TransE version: Knowledge embeddings of Wikidata pre-trained by OpenKE. 
-    - [TransR version](https://thunlp.oss-cn-qingdao.aliyuncs.com/zzy/transr.npy) of Wikidata-5M: Knowledge embeddings of Wikidata-5M pre-trained by OpenKE for the project [Knowledge-Plugin](https://github.com/THUNLP/Knowledge-Plugin).
+    - [TransR version](https://thunlp.oss-cn-qingdao.aliyuncs.com/zzy/transr.npy) of Wikidata-5M: Knowledge embeddings of Wikidata-5M pre-trained by OpenKE.
   - OpenKE-Freebase
     - Freebase was a large collaborative knowledge base consisting of data composed mainly by its community members. It was an online collection of structured data harvested from many sources. Freebase contains 86,054,151 entities, 14,824 relations and 338,586,276 triplets.
     - TransE version: Knowledge embeddings of Freebase pre-trained by OpenKE. 
@@ -204,4 +210,4 @@ OpenSKL project aims to harness the power of both structured knowledge and natur
     - TransE version: Knowledge embeddings of XLORE pre-trained by OpenKE.
 - **Application**:   
     - [Knowledge-Plugin](https://github.com/THUNLP/Knowledge-Plugin)
-      - An effective and efficient toolkit of plug-and-play knowledge injection for pre-trained language models. Knowledge-Plugin is general for all kinds of knowledge graph embeddings mentioned above. In the toolkit, we provide the example of plugging OpenKE-Wikidata embeddings into BERT.
+      - An effective and efficient toolkit of plug-and-play knowledge injection for pre-trained language models. Knowledge-Plugin is general for all kinds of knowledge graph embeddings mentioned above. In the toolkit, we plug the TransR version of Wikidata-5M into BERT as an example of applications. With the TransR embedding, we enhance the knowledge ability of BERT without fine-tuning the original model, e.g., up to 8% improvement on question answering.
