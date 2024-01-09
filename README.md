@@ -6,9 +6,7 @@ ERNIE is a sub-project of OpenSKL, providing an open-sourced toolkit (**E**nhanc
 
 ERNIE contains the source code and dataset for "[ERNIE: Enhanced Language Representation with Informative Entities](https://arxiv.org/abs/1905.07129)", and is an effective and efficient toolkit for augmenting pre-trained language models with knowledge graph representations.
 
-## Usage
-
-### Requirements:
+## Requirements:
 
 * Pytorch>=0.4.1
 * Python3
@@ -17,7 +15,7 @@ ERNIE contains the source code and dataset for "[ERNIE: Enhanced Language Repres
 * requests
 * apex (If you want to use fp16, you should make sure the commit is `79ad5a88e91434312b43b4a89d66226be5f2cc98`.)
 
-### Prepare Pre-train Data
+## Prepare Pre-train Data
 
 Run the following command to create training instances.
 
@@ -56,7 +54,7 @@ Run the following command to pretrain:
 
 We use 8 NVIDIA-2080Ti to pre-train our model and there are 32 instances in each GPU. It takes nearly one day to finish the training (1 epoch is enough).
 
-### Pre-trained Model
+## Pre-trained Model
 
 Download pre-trained knowledge embedding from [Google Drive](https://drive.google.com/open?id=14VNvGMtYWxuqT-PWDa8sD0e7hO486i8Y)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/229e8cccedc2419f987e/) and extract it.
 
@@ -72,7 +70,11 @@ tar -xvzf ernie_base.tar.gz
 
 Note that the extraction may be not completed in Windows.
 
-### Fine-tune
+## Evaluation
+
+We validate the effectiveness of ERNIE on relation classification and entity typing tasks through fine-tuning.
+
+### Settings
 
 As most datasets except FewRel don't have entity annotations, we use [TAGME](<https://tagme.d4science.org/tagme/>) to extract the entity mentions in the sentences and link them to their corresponding entitoes in KGs. We provide the annotated datasets [Google Drive](https://drive.google.com/open?id=1HlWw7Q6-dFSm9jNSCh4VaBf1PlGqt9im)/[Tsinghua Cloud](https://cloud.tsinghua.edu.cn/f/6ec98dbd931b4da9a7f0/).
 
@@ -126,7 +128,17 @@ python3 code/score.py gold_file pred_file
 
 You can find `gold_file` and `pred_file` on each checkpoint in the output folder (`--output_dir`).
 
-**New Tasks:**
+### Results
+
+Here we report the main results on the above datasets. From this table, we observe that ERNIE effectively improves the performance of BERT on these knowledge-driven tasks.
+
+|       | FIGER | OpenEntity | FewRel | TACRED |
+|-------|-------|------------|--------|--------|
+|       | Acc.  | F1         | F1     | F1     |
+| BERT  | 52.04 | 73.56      | 84.89  | 66.00  |
+| ERNIE | 57.19 | 75.56      | 88.32  | 67.97  |
+
+## New Tasks
 
 If you want to use ERNIE in new tasks, you should follow these steps:
 
